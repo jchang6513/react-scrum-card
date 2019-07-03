@@ -22,7 +22,6 @@ import "./styles.css";
 function App() {
   return (
     <div className="App">
-      <h1> scrum-poker-cards </h1>
       <div className="card-deck">
         <PokerCover />
         <PokerOne />
