@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Slider from "react-slick";
 
 import PokerCover from "./pokers/PokerCover";
 import PokerOne from "./pokers/PokerOne";
@@ -20,9 +21,36 @@ import PokerDragons from "./pokers/PokerDragons";
 import "./styles.css";
 
 function App() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
   return (
     <div className="App">
       <h1> scrum-poker-cards </h1>
+      <Slider {...settings}>
+        <div>
+          <h3>1</h3>
+        </div>
+        <div>
+          <h3>2</h3>
+        </div>
+        <div>
+          <h3>3</h3>
+        </div>
+        <div>
+          <h3>4</h3>
+        </div>
+        <div>
+          <h3>5</h3>
+        </div>
+        <div>
+          <h3>6</h3>
+        </div>
+      </Slider>
       <div className="card-deck">
         <PokerCover />
         <PokerOne />
