@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       <h1> scrum-poker-cards </h1>
       <div className="card-deck">
-        {/* <PokerCover /> */}
+        <PokerCover />
         <PokerOne />
         <PokerTwo />
         <PokerThree />
