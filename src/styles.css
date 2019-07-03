@@ -2,3 +2,24 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+svg {
+  border-radius: 10px;
+  width: 100px;
+}
+
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-deck > * {
+  flex: 0 0 calc(20% - 20px);
+  margin: 10px 10px;
+}
+
+.credit {
+  bottom: 10px;
+  position: fixed;
+  right: 10px;
+}
