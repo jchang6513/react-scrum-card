@@ -1,43 +1,45 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import PokerCover from "./pokers/PokerCover";
-import PokerOne from "./pokers/PokerOne";
-import PokerTwo from "./pokers/PokerTwo";
-import PokerThree from "./pokers/PokerThree";
-import PokerFive from "./pokers/PokerFive";
-import PokerEight from "./pokers/PokerEight";
-import PokerThirteen from "./pokers/PokerThirteen";
-import PokerTwenty from "./pokers/PokerTwenty";
-import PokerForty from "./pokers/PokerForty";
-import PokerHundred from "./pokers/PokerHundred";
-import PokerInfinty from "./pokers/PokerInfinty";
-import PokerShaving from "./pokers/PokerShaving";
-import PokerCoffee from "./pokers/PokerCoffee";
-import PokerEat from "./pokers/PokerEat";
-import PokerDragons from "./pokers/PokerDragons";
+// import pokerCover from "./pokers/pokerCover";
+import pokerI from "./png/planning poker_Low hanging fruit.png";
+import pokerII from "./png/planning poker_Piece of cake.png";
+import pokerIII from "./png/planning poker_It ain't rocket science.png";
+import pokerV from "./png/planning poker-03.png";
+import pokerVIII from "./png/planning poker_An arm and a leg.png";
+import pokerXIII from "./png/planning poker_Squeaking by.png";
+import pokerXX from "./png/planning poker_Don't put all .png";
+import pokerXL from "./png/planning poker_Meterse en un berenjenal.png";
+import pokerC from "./png/planning poker_Monster task.png";
+import pokerInf from "./png/planning poker_When pigs fly.png";
+import pokerBreak from "./png/planning poker_Eat a brownie.png";
+import pokerNaN from "./png/planning poker_Here be dragons.png";
 
-import "./styles.css";
+import "./styles.scss";
 
 function App() {
+  const pokers = [
+    pokerI,
+    pokerII,
+    pokerIII,
+    pokerV,
+    pokerVIII,
+    pokerXIII,
+    pokerXX,
+    pokerXL,
+    pokerC,
+    pokerInf,
+    pokerNaN,
+    pokerBreak
+  ];
   return (
     <div className="App">
       <div className="card-deck">
-        <PokerCover />
-        <PokerOne />
-        <PokerTwo />
-        <PokerThree />
-        <PokerFive />
-        <PokerEight />
-        <PokerThirteen />
-        <PokerTwenty />
-        <PokerForty />
-        <PokerHundred />
-        <PokerInfinty />
-        <PokerShaving />
-        <PokerCoffee />
-        <PokerEat />
-        <PokerDragons />
+        {pokers.map((poker, index) => (
+          <div className="image-frame">
+            <img src={poker} alt="" />
+          </div>
+        ))}
       </div>
       <a
         className="credit"
