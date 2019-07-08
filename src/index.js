@@ -59,7 +59,13 @@ function App() {
       <TransitionGroup component={null}>
         {picked && (
           <CSSTransition classNames="poker" timeout={300}>
-            <div className="pop-up" onClick={() => setPicked(null)}>
+            <div
+              className="pop-up"
+              onClick={() => {
+                setPicked(null);
+                setFlipped(false);
+              }}
+            >
               <img
                 alt=""
                 src={flipped ? pokerCover : picked}
