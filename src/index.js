@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-// import pokerCover from "./pokers/pokerCover";
+import pokerCover from "./png/Cover - option 2.png";
 import pokerI from "./png/planning poker_Low hanging fruit.png";
 import pokerII from "./png/planning poker_Piece of cake.png";
 import pokerIII from "./png/planning poker_It ain't rocket science.png";
@@ -33,7 +33,20 @@ function App() {
     pokerNaN,
     pokerBreak
   ];
+  const [flipped, setFlipped] = useState(null);
   const [picked, setPicked] = useState(null);
+
+  const onFlipped = e => {
+    e.stopPropagation();
+    document.getElementsByClassName(
+      "pop-up"
+    )[0].children[0].style.transform = `translate(-50%, -50%) rotateY(${
+      flipped ? "0deg" : "180deg"
+    })`;
+    setTimeout(() => {
+      setFlipped(!flipped);
+    }, 150);
+  };
   return (
     <div className="App">
       <div className="card-deck">
@@ -47,7 +60,13 @@ function App() {
         {picked && (
           <CSSTransition classNames="poker" timeout={300}>
             <div className="pop-up" onClick={() => setPicked(null)}>
-              <img src={picked} alt="" />
+              <img
+                alt=""
+                src={flipped ? pokerCover : picked}
+                onClick={e => {
+                  onFlipped(e);
+                }}
+              />
             </div>
           </CSSTransition>
         )}
