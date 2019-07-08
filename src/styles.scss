@@ -17,13 +17,53 @@
   }
   .image-frame {    
     flex: 0 0 calc(33% - 20px);
-    margin: 10px;  
+    margin: 5px 10px;  
     img {
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      border-radius: 5%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       width: 100%;
     }
   }
+}
+
+.pop-up {  
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  left: 0px;
+  position: fixed;
+  top: 0px;  
+  width: 100vw;
+  z-index: 100;
+  img {    
+    border-radius: 5%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+  }
+}
+
+.poker-enter {
+  opacity: 0.01;
+  transform: scale(1.2);
+}
+
+.poker-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 300ms;
+}
+
+.poker-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.poker-exit-active {
+  opacity: 0.01;
+  transform: scale(1.2);
+  transition: all 300ms;
 }
 
 .credit {

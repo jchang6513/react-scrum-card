@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 // import pokerCover from "./pokers/pokerCover";
 import pokerI from "./png/planning poker_Low hanging fruit.png";
@@ -32,15 +33,25 @@ function App() {
     pokerNaN,
     pokerBreak
   ];
+  const [picked, setPicked] = useState(null);
   return (
     <div className="App">
       <div className="card-deck">
         {pokers.map((poker, index) => (
-          <div className="image-frame">
+          <div className="image-frame" onClick={() => setPicked(poker)}>
             <img src={poker} alt="" />
           </div>
         ))}
       </div>
+      <TransitionGroup component={null}>
+        {picked && (
+          <CSSTransition classNames="poker" timeout={300}>
+            <div className="pop-up" onClick={() => setPicked(null)}>
+              <img src={picked} alt="" />
+            </div>
+          </CSSTransition>
+        )}
+      </TransitionGroup>
       <a
         className="credit"
         href="https://github.com/redbooth/scrum-poker-cards"
