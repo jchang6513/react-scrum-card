@@ -43,9 +43,7 @@ function App() {
     )[0].children[0].style.transform = `translate(-50%, -50%) rotateY(${
       flipped ? "0deg" : "180deg"
     })`;
-    setTimeout(() => {
-      setFlipped(!flipped);
-    }, 150);
+    setFlipped(!flipped);
   };
   return (
     <div className="App">
