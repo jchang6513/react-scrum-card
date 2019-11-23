@@ -38,11 +38,6 @@ function App() {
 
   const onFlipped = e => {
     e.stopPropagation();
-    document.getElementsByClassName(
-      "pop-up"
-    )[0].children[0].style.transform = `translate(-50%, -50%) rotateY(${
-      flipped ? "0deg" : "180deg"
-    })`;
     setFlipped(!flipped);
   };
   return (
@@ -58,19 +53,20 @@ function App() {
         {picked && (
           <CSSTransition classNames="poker" timeout={300}>
             <div
-              className="pop-up"
+              id="pop-up"
               onClick={() => {
                 setPicked(null);
                 setFlipped(false);
               }}
             >
-              <img
-                alt=""
-                src={flipped ? pokerCover : picked}
-                onClick={e => {
-                  onFlipped(e);
-                }}
-              />
+              <div className={`picked-card ${flipped ? 'flipped' : ''}`}>
+                <div className="card-front">
+                  <img alt="selected card" src={picked} onClick={(e) => onFlipped(e)}/>
+                </div>
+                <div className="card-back">
+                  <img alt="card back" src={pokerCover} onClick={(e) => onFlipped(e)}/>
+                </div>
+              </div>
             </div>
           </CSSTransition>
         )}
