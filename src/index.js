@@ -41,43 +41,45 @@ function App() {
     setFlipped(!flipped);
   };
   return (
-    <div className="App">
-      <div className="card-deck">
-        {pokers.map((poker, index) => (
-          <div className="image-frame" onClick={() => setPicked(poker)}>
-            <img src={poker} alt="" />
-          </div>
-        ))}
-      </div>
-      <TransitionGroup component={null}>
-        {picked && (
-          <CSSTransition classNames="poker" timeout={300}>
-            <div
-              id="pop-up"
-              onClick={() => {
-                setPicked(null);
-                setFlipped(false);
-              }}
-            >
-              <div className={`picked-card ${flipped ? 'flipped' : ''}`}>
-                <div className="card-front">
-                  <img alt="selected card" src={picked} onClick={(e) => onFlipped(e)}/>
-                </div>
-                <div className="card-back">
-                  <img alt="card back" src={pokerCover} onClick={(e) => onFlipped(e)}/>
+    <>
+      <div className="App">
+        <div className="card-deck">
+          {pokers.map((poker, index) => (
+            <div className="image-frame" onClick={() => setPicked(poker)}>
+              <img src={poker} alt="" />
+            </div>
+          ))}
+        </div>
+        <TransitionGroup component={null}>
+          {picked && (
+            <CSSTransition classNames="poker" timeout={300}>
+              <div
+                id="pop-up"
+                onClick={() => {
+                  setPicked(null);
+                  setFlipped(false);
+                }}
+              >
+                <div className={`picked-card ${flipped ? 'flipped' : ''}`}>
+                  <div className="card-front">
+                    <img alt="selected card" src={picked} onClick={(e) => onFlipped(e)}/>
+                  </div>
+                  <div className="card-back">
+                    <img alt="card back" src={pokerCover} onClick={(e) => onFlipped(e)}/>
+                  </div>
                 </div>
               </div>
-            </div>
-          </CSSTransition>
-        )}
-      </TransitionGroup>
+            </CSSTransition>
+          )}
+        </TransitionGroup>
+      </div>
       <a
         className="credit"
         href="https://github.com/redbooth/scrum-poker-cards"
       >
         redbooth/scrum-poker-cards
       </a>
-    </div>
+    </>
   );
 }
 
