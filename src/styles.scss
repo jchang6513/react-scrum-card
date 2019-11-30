@@ -43,19 +43,24 @@ body {
     transform: translate(-50%, -50%);
   }
 }
+
 .card-deck {
   display: flex;
-  flex-wrap: wrap;
-  height: 100%;
-  justify-content: space-evenly;
-  padding-bottom: 40px;
+  padding: 40px 30px;
+  position: absolute;
+  top: calc(50% - 20px);
+  transform: translateY(-50%);
   overflow: scroll;
   &::-webkit-scrollbar {
     display: none;
   }
   .image-frame {
-    flex: 0 0 calc(33% - 20px);
+    flex: 0 0 80%;
     margin: 5px 10px;
+    transform: rotateZ(-10deg);
+    &:not(:first-child) {
+      margin-left: -30%;
+    }
     img {
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
